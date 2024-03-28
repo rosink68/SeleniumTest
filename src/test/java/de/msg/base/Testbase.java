@@ -27,13 +27,22 @@ public class Testbase {
 
     @AfterAll
     public static void tearDown() {
+        wait2000();
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+
+    /*
+     * The helper class makes it possible to track the actions on the user interface.
+     */
+    public static void wait2000() {
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        if (driver != null) {
-            driver.quit();
-        }
     }
+
 }

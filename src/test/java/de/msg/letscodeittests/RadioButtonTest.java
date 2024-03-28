@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class RadioButton1Test {
+public class RadioButtonTest {
 
     private static WebDriver driver;
 

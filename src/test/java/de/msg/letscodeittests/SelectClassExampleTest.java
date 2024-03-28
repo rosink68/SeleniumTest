@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -26,6 +28,17 @@ public class SelectClassExampleTest extends Testbase {
         listeAutos = selectAutos.getOptions();
     }
 
+    @ParameterizedTest
+    @MethodSource("de.msg.utilities.DataProviderUtil#setTestDataSelectClassExampleTest")
+    public void selectClassTest(String selectedClass, int indexSelectedClass) {
+        selectAutos.selectByValue(selectedClass);
+
+        Assertions.assertTrue(listeAutos.get(indexSelectedClass).isSelected());
+
+        wait2000();
+    }
+
+    /*
     @Test
     public void selectBMWTest() {
         selectAutos.selectByValue("bmw");
@@ -43,4 +56,6 @@ public class SelectClassExampleTest extends Testbase {
         selectAutos.selectByValue("honda");
         Assertions.assertTrue(listeAutos.get(2).isSelected());
     }
+
+     */
 }

@@ -2,38 +2,24 @@ package de.msg.letscodeittests;
 
 import de.msg.base.Testbase;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class RadioButtonExampleTest extends Testbase {
 
-    @Test
-    public void radioButtonBMWTest() {
+    @ParameterizedTest
+    @MethodSource("de.msg.utilities.DataProviderUtil#setTestDataRadioButtonExampleTest")
+    public void radioButtonTest(String radioButton) {
 
-        WebElement radioButton = driver.findElement(By.id("bmwradio"));
-        radioButton.click();
+        WebElement radioButtontest = driver.findElement(By.id(radioButton));
+        radioButtontest.click();
 
-        Assertions.assertTrue(radioButton.isSelected());
-    }
+        Assertions.assertTrue(radioButtontest.isSelected());
 
-    @Test
-    public void radioButtonBenzTest() {
-
-        WebElement radioButton = driver.findElement(By.id("benzradio"));
-        radioButton.click();
-
-        Assertions.assertTrue(radioButton.isSelected());
-    }
-
-
-    @Test
-    public void radioButtonHondaTest() {
-
-        WebElement radioButton = driver.findElement(By.id("hondaradio"));
-        radioButton.click();
-
-        Assertions.assertTrue(radioButton.isSelected());
+        // nur um auf der Webseite was zu sehen
+        wait2000();
     }
 
 }
