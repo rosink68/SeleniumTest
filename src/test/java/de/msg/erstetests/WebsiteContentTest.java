@@ -158,11 +158,12 @@ public class WebsiteContentTest {
         driver.get(baseUrl);
 
         WebElement txtArea = driver.findElement(By.tagName("textarea"));
-        txtArea.sendKeys("The last step is to write a short description about yourself:");
-
+        txtArea.sendKeys("Text im Textarea");
+        String txtInArea = txtArea.getAttribute("value");
+        System.out.println("Text " + txtInArea);
 
         //close Fire fox
-//        driver.close();
+        driver.close();
 
     }
 
