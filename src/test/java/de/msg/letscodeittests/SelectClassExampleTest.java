@@ -19,7 +19,7 @@ public class SelectClassExampleTest extends Testbase {
     Select selectAutos;
 
     @BeforeEach
-    public void setupBeforeClass() {
+    public void setupBeforeEach() {
         Testbase.setUp();
 
         WebElement selectElement = driver.findElement(By.id("carselect"));
