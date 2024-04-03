@@ -25,11 +25,11 @@ public class DummyRegistrationTest {
         System.setProperty("webdriver.chrome.driver","C:\\Users\\rosink\\IdeaProjects\\SeleniumTest\\src\\main\\resources\\chromedriver1.exe");
         driver = new ChromeDriver();
         registration = new DummyRegistration(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         String baseUrl = "https://way2automation.com/way2auto_jquery/";
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
         driver.get(baseUrl);
