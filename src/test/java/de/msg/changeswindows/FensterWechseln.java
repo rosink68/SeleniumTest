@@ -39,13 +39,12 @@ public class FensterWechseln {
 
              if(!window.equals(mainWindow)) {
                 driver.switchTo().window(window);
-                System.out.println(window);
-
                 Assertions.assertNotEquals(window,mainWindow);
 
                 WebElement searchField = driver.findElement(By.xpath("//input[@id='search']"));
                 searchField.sendKeys("JavaScript");
-                System.out.println("Gesucht wird nach: " + searchField.getAttribute("value"));
+                String valueSearchField = searchField.getAttribute("value");
+                System.out.println("Gesucht wird nach: " + valueSearchField);
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -57,8 +56,8 @@ public class FensterWechseln {
         }
 
         driver.switchTo().window(mainWindow);
-        WebElement checkBox = driver.findElement(By.id("bmwcheck"));
-        checkBox.click();
+        WebElement checkBoxBmw = driver.findElement(By.id("bmwcheck"));
+        checkBoxBmw.click();
     }
 
 
